@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using static ArticoliGratis.Models.Modelli;
+
 
 namespace ArticoliGratis.Models
 {
@@ -10,9 +10,10 @@ namespace ArticoliGratis.Models
         {
         }
 
-        public DbSet<Articolo> Articolo { get; set; }
+        public DbSet<Articolo> Articoli { get; set; }
 
-        public DbSet<Autore> Autore{ get; set; }
+        public DbSet<Utente> Autori{ get; set; }
 
     }
 }
+
