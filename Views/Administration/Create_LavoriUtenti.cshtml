@@ -1,0 +1,16 @@
+﻿@model ArticoliGratis.Models.Lavoro;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+
+
+
+<form asp-controller="Administration" asp-action="Create_LavoriUtenti" method="post">
+    Nome Lavoro:  <input asp-for="NomeLavoro" /> <br />
+    Descrizione Lavoro: <input asp-for="DescrizioneLavoro" /><br />
+   
+    <button type="submit">Inserisci</button>
+</form>
+
+
+

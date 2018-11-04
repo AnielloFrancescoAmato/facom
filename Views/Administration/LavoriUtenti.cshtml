@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ArticoliGratis.Models.Lavoro>;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4"  style="text-align: justify">      
+        <h3>@item.NomeLavoro Ipsum è un testo segnaposto </h3>         
+         @String.Format("{0} {1}", @item.NomeLavoro, @item.DescrizioneLavoro)
+         
+    </div>
+ 
+}
+
+

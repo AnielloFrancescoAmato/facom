@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Amministrazione";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div id="categorieArticoli">
+        <h3>Gestione Lavoro Utenti</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Gestisci Lavoro Utenti", "LavoriUtenti" , "Administration" )</li>
+            </ul>
+    </div>
+ </div>
+    <div class="col-md-4">
+        <h3>Tutti gli articoli della categoria</h3>
+        <ul>
+        </ul>
+    </div>
+   
+    <div class="col-md-4">
+        <h3>Sotto Categorie</h3>
+        <ul class="list-unstyled">
+       </ul>
+    </div>
+</div>
