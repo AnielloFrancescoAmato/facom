@@ -37,34 +37,49 @@ namespace ArticoliGratis.Models
  public class Lavoro{
       [Key]
       public int idLavoro{ get; set; }
+      [Required(ErrorMessage = "Il campo nome è richiesto")]
       public string NomeLavoro{ get; set; }
       public string DescrizioneLavoro{ get; set; }
   }
  public class Sesso{
       [Key]
       public int idSesso{ get; set; }
+      [Required]
       public string NomeSesso{ get; set; }
       public string DescrizioneSesso{ get; set; }
   }
 
   public class DatiAnagraficiUtente{
-      [Key]
-      public int idAnagraficiUtente{ get; set; }
-       
+       [Key]
+        public int idAnagraficiUtente{ get; set; }
+       [Required]
         public string Nome{ get; set; }
+        [Required]
         public string Cognome{ get; set; }
+        [Required]
         public string EmailPersonale{ get; set; }
+        [Required]
         public string Regione{ get; set; }
+        [Required]
         public string Provincia{ get; set; }
+        [Required]
         public string Comune{ get; set; }
+        [Required]
         public DataType DataDiNascita{ get; set; }
+        [Required]
         public string TelefonoFisso{ get; set; }
+        [Required]
         public string TelefonoCellulare{ get; set; }
+        [Required]
         public string SitoWebPersonale{ get; set; }
+        [Required]
         public virtual Sesso sesso{ get; set; }
+        [Required]
         public virtual Lavoro lavoro { get; set; }
+        [Required]
         public virtual TitoloDiStudio titolodiStudio{ get; set; }
         public bool LiberoProfessionista{ get; set; }
+        [Required]
         public virtual Settore settore{get; set;}
         
   }

@@ -31,7 +31,7 @@ namespace ArticoliGratis.Controllers
             return View(LavoriUtenti);
         }
 
-
+         [HttpGet]
          public IActionResult Create_LavoriUtenti()
         {
             return View();
@@ -51,6 +51,60 @@ namespace ArticoliGratis.Controllers
               return View(lavoro);
             }
         }
+        [HttpGet]
+         public IActionResult Edit_LavoriUtenti(int id)
+        {
+            Lavoro lavoro = _context.Lavori.Where(x => x.idLavoro ==id).FirstOrDefault();
+            return View(lavoro );
+        }
+
+        [HttpPost]
+        public IActionResult Edit_LavoriUtenti(Lavoro lavoro)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Lavori.Update(lavoro); 
+                _context.SaveChanges();
+               return RedirectToAction("LavoriUtenti");
+            }
+            else
+            {
+              return View(lavoro);
+            }
+        }
+
+         [HttpGet]
+         public IActionResult Delete_LavoriUtenti(int id)
+        {
+            Lavoro lavoro = _context.Lavori.Where(x => x.idLavoro ==id).FirstOrDefault();
+            return View(lavoro);
+        }
+
+        [HttpPost]
+        public IActionResult Delete_LavoriUtenti(Lavoro lavoro)
+        {
+             if(lavoro != null)
+             {
+                 return View("ConfirmDelete_LavoriUtente", lavoro);
+             }
+             return View("LavoriUtente");
+            
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmDelete_LavoriUtenti(Lavoro lavoro)
+        {
+             if(lavoro != null)
+             {
+               _context.Lavori.Remove(lavoro);
+               _context.SaveChanges();
+               return RedirectToAction("LavoriUtenti");
+             }
+             return View("LavoriUtente");
+            
+        }
+
+
 
 
     }

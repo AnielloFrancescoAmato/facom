@@ -3,14 +3,23 @@
     ViewData["Title"] = "Amministrazione";
 }
 
-
+<div class="row">
+    <div class="col-md-4">
+        <div id="categorieArticoli">
+        <h3>Gestione Lavoro Utenti</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Crea Lavoro Utente", "Create_LavoriUtenti" , "Administration" )</li>
+        </ul>
+    </div>
+ </div>
 
 @foreach (var item in Model)
 {
     <div class="col-md-4"  style="text-align: justify">      
         <h3>@item.NomeLavoro Ipsum è un testo segnaposto </h3>         
          @String.Format("{0} {1}", @item.NomeLavoro, @item.DescrizioneLavoro)
-         
+         <li>@Html.ActionLink("Modifica Lavoro Utente", "Edit_LavoriUtenti" , "Administration",  new {id=@item.idLavoro} )</li>
+          <li>@Html.ActionLink("Elimina Lavoro Utente", "Delete_LavoriUtenti" , "Administration",  new {id=@item.idLavoro} )</li>
     </div>
  
 }

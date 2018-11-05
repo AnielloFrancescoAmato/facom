@@ -12,9 +12,10 @@ using System.ComponentModel.DataAnnotations;
 namespace ArticoliGratis.Migrations
 {
     [DbContext(typeof(ArticoliGratisContext))]
-    partial class ArticoliGratisContextModelSnapshot : ModelSnapshot
+    [Migration("20181105220306_AggiuntoCampiRequired")]
+    partial class AggiuntoCampiRequired
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
