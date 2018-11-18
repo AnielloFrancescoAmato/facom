@@ -11,9 +11,10 @@ using System;
 namespace ArticoliGratis.Migrations
 {
     [DbContext(typeof(ArticoliGratisContext))]
-    partial class ArticoliGratisContextModelSnapshot : ModelSnapshot
+    [Migration("20181118175540_AddDataDiNascita")]
+    partial class AddDataDiNascita
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

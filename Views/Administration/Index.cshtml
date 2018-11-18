@@ -12,15 +12,51 @@
         </ul>
     </div>
  </div>
+
+
+
+    
     <div class="col-md-4">
-        <h3>Tutti gli articoli della categoria</h3>
-        <ul>
+        <div id="categorieArticoli">
+        <h3>Gestione Titoli di Studio</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Gestisci Titoli di Studio", "TitolidiStudio" , "Administration" )</li>
+        </ul>
+
+
+    </div>
+ </div>
+    <div class="col-md-4">
+        <div id="categorieArticoli">
+        <h3>Gestione Sesso Utenti</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Gestisci Sesso", "Sesso" , "Administration" )</li>
         </ul>
     </div>
-   
-    <div class="col-md-4">
-        <h3>Sotto Categorie</h3>
-        <ul class="list-unstyled">
-       </ul>
+ </div>
+</div>
+
+
+ <div class="row">       
+        <div class="col-md-4">
+        <div id="categorieArticoli">
+        <h3>Gestione Settore Utenti</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Gestisci Settore", "Settore" , "Administration" )</li>
+        </ul>
     </div>
+</div>
+      <div class="col-md-4">
+        <div id="categorieArticoli">
+        <h3>Gestione Categorie Aziende</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Gestisci Categorie Aziende", "CategoriaAzienda" , "Administration" )</li>
+        </ul>
+    </div>
+</div>
+
+ </div>
+
+
+    
 </div>

@@ -1,13 +1,13 @@
-﻿@model IEnumerable<ArticoliGratis.Models.Lavoro>;
+﻿@model IEnumerable<ArticoliGratis.Models.Sesso>;
 @{
     ViewData["Title"] = "Amministrazione";
 }
 <div class="row">
     <div class="col-md-12">
         <div id="categorieArticoli">
-        <h3>Gestione Lavoro Utenti</h3> 
+        <h3>Gestione Sesso Utenti</h3> 
         <ul class="list-unstyled">    
-            <li>@Html.ActionLink("Crea Lavoro Utente", "LavoriUtenti_Create" , "Administration" )</li>
+            <li>@Html.ActionLink("Crea Sesso Utente", "Sesso_Create" , "Administration" )</li>
         </ul>
     </div>
  </div>
@@ -15,10 +15,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NomeLavoro)
+                @Html.DisplayNameFor(model => model.NomeSesso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DescrizioneLavoro)
+                @Html.DisplayNameFor(model => model.DescrizioneSesso)
             </th>    
             <th>             
             </th>
@@ -29,14 +29,14 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NomeLavoro)
+                    @Html.DisplayFor(modelItem => item.NomeSesso)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DescrizioneLavoro)
+                    @Html.DisplayFor(modelItem => item.DescrizioneSesso)
                 </td>         
                 <td>              
-                    @Html.ActionLink("Modifica", "LavoriUtenti_Edit" , "Administration",  new {id=@item.idLavoro} )
-                    @Html.ActionLink("Elimina", "LavoriUtenti_Delete" , "Administration",  new {id=@item.idLavoro} )
+                    @Html.ActionLink("Modifica", "Sesso_Edit" , "Administration",  new {id=@item.idSesso} )
+                    @Html.ActionLink("Elimina", "Sesso_Delete" , "Administration",  new {id=@item.idSesso} )
                 </td>
                 </tr>
         }

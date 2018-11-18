@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ArticoliGratis.Models.TitoloDiStudio>;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div id="categorieArticoli">
+        <h3>Gestione Titoli di Studio Utenti</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Crea Titolo di Studio", "TitolidiStudio_Create" , "Administration" )</li>
+        </ul>
+    </div>
+ </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeTitolodiStudio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescrizioneTitolodiStudio)
+            </th>    
+            <th>             
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTitolodiStudio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescrizioneTitolodiStudio)
+                </td>         
+                <td>              
+                    @Html.ActionLink("Modifica", "TitolidiStudio_Edit" , "Administration",  new {id=@item.idTitoloDiStudio} )
+                    @Html.ActionLink("Elimina", "TitolidiStudio_Delete" , "Administration",  new {id=@item.idTitoloDiStudio} )
+                </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+

@@ -1,0 +1,174 @@
+﻿@model ArticoliGratis.Models.Utente;
+
+@{
+    ViewData["Title"] = "Iscriviti";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="categorieArticoli">
+        <h3>Creazione Settore Utente</h3>
+    </div>
+ </div> 
+ 
+ <form asp-controller="Home" asp-action="Iscriviti" method="post">
+    <div class="form-group col-md-12">
+        <label asp-for="UserName" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="Password" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.Nome" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.Nome" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.Nome" class="text-danger"></span>
+        </div>
+    </div>
+     <div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.Cognome" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.Cognome" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.Cognome" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+
+    
+    <div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.lavoro.NomeLavoro" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+              <select asp-for="DatiAnagraficiUtnte.lavoro.idLavoro"   
+                      class="form-control"   
+                      asp-items="@(new SelectList(@ViewBag.Lavori,"idLavoro", "NomeLavoro"))">  
+                    </select> 
+        </div>
+    </div >
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.sesso.NomeSesso" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+              <select asp-for="DatiAnagraficiUtnte.sesso.idSesso"   
+                      class="form-control"   
+                      asp-items="@(new SelectList(@ViewBag.Sessi,"idSesso", "NomeSesso"))">  
+               </select> 
+        </div>
+</div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.settore.NomeSettore" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+              <select asp-for="DatiAnagraficiUtnte.settore.idSettore"   
+                      class="form-control"   
+                      asp-items="@(new SelectList(@ViewBag.Settori,"idSettore", "NomeSettore"))">  
+               </select> 
+        </div>
+</div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.titolodiStudio.NomeTitolodiStudio" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+              <select asp-for="DatiAnagraficiUtnte.titolodiStudio.idTitoloDiStudio"  
+                      class="form-control"   
+                      asp-items="@(new SelectList(@ViewBag.TitoliDiStudio,"idTitoloDiStudio", "NomeTitolodiStudio"))">  
+               </select> 
+        </div>
+</div>
+
+
+
+
+ <div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.EmailPersonale" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.EmailPersonale" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.EmailPersonale" class="text-danger"></span>
+        </div>
+    </div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.Regione" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.Regione" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.Regione" class="text-danger"></span>
+        </div>
+    </div>
+
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.Provincia" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.Provincia" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.Provincia" class="text-danger"></span>
+        </div>
+    </div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.Comune" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.Comune" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.Comune" class="text-danger"></span>
+        </div>
+    </div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.DataDiNascita" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input type="date" asp-for="DatiAnagraficiUtnte.DataDiNascita" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.DataDiNascita" class="text-danger"></span>
+        </div>
+    </div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.TelefonoFisso" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.TelefonoFisso" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.TelefonoFisso" class="text-danger"></span>
+        </div>
+    </div>
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.TelefonoCellulare" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.TelefonoCellulare" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.TelefonoCellulare" class="text-danger"></span>
+        </div>
+    </div>
+<div class="form-group col-md-12">
+        <label asp-for="DatiAnagraficiUtnte.SitoWebPersonale" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DatiAnagraficiUtnte.SitoWebPersonale" class="form-control" />
+            <span asp-validation-for="DatiAnagraficiUtnte.SitoWebPersonale" class="text-danger"></span>
+        </div>
+    </div>
+
+
+<div class="form-group col-md-12">
+        <label asp-for="DatiAziendali.CategoriaAzienda.NomeCategoria" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+              <select asp-for="DatiAziendali.CategoriaAzienda.idCategoriaAzienda"  
+                      class="form-control"   
+                      asp-items="@(new SelectList(@ViewBag.CategorieAzienda,"idCategoriaAzienda", "NomeCategoria"))">  
+               </select> 
+        </div>
+</div>
+
+
+
+
+    <div class="form-group col-md-12">
+        <div class="col-md-offset-2 col-md-8">
+            <button type="submit">Inserisci</button>
+            <input type="button" value="Indietro" onclick="location.href='@Url.Action("CategoriaAzienda", "Administration")'" />
+        </div>
+    </div>
+</form>

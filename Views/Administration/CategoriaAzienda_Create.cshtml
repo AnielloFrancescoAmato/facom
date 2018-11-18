@@ -1,0 +1,38 @@
+﻿@model ArticoliGratis.Models.CategoriaAzienda;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="categorieArticoli">
+        <h3>Creazione Settore Utente</h3>
+    </div>
+ </div> 
+ 
+ <form asp-controller="Administration" asp-action="CategoriaAzienda_Create" method="post">
+    <div class="form-group col-md-12">
+        <label asp-for="NomeCategoria" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="NomeCategoria" class="form-control" />
+            <span asp-validation-for="NomeCategoria" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="DescrizioneCategoria" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DescrizioneCategoria" class="form-control" />
+            <span asp-validation-for="DescrizioneCategoria" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-offset-2 col-md-8">
+            <button type="submit">Inserisci</button>
+            <input type="button" value="Indietro" onclick="location.href='@Url.Action("CategoriaAzienda", "Administration")'" />
+        </div>
+    </div>
+</form>
+
+
+

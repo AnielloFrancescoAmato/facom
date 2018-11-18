@@ -11,9 +11,10 @@ using System;
 namespace ArticoliGratis.Migrations
 {
     [DbContext(typeof(ArticoliGratisContext))]
-    partial class ArticoliGratisContextModelSnapshot : ModelSnapshot
+    [Migration("20181118175420_EliminoDataDiNascita")]
+    partial class EliminoDataDiNascita
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,8 +98,6 @@ namespace ArticoliGratis.Migrations
 
                     b.Property<string>("Comune")
                         .IsRequired();
-
-                    b.Property<DateTime>("DataDiNascita");
 
                     b.Property<string>("EmailPersonale")
                         .IsRequired();

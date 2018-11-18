@@ -1,0 +1,38 @@
+﻿@model ArticoliGratis.Models.Sesso;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="categorieArticoli">
+        <h3>Creazione Sesso Utente</h3>
+    </div>
+ </div> 
+ 
+ <form asp-controller="Administration" asp-action="Sesso_Create" method="post">
+    <div class="form-group col-md-12">
+        <label asp-for="NomeSesso" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="NomeSesso" class="form-control" />
+            <span asp-validation-for="NomeSesso" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label asp-for="DescrizioneSesso" class="control-label col-md-4"></label>
+        <div class="col-md-4">
+            <input asp-for="DescrizioneSesso" class="form-control" />
+            <span asp-validation-for="DescrizioneSesso" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group col-md-12">
+        <div class="col-md-offset-2 col-md-8">
+            <button type="submit">Inserisci</button>
+            <input type="button" value="Indietro" onclick="location.href='@Url.Action("Sesso", "Administration")'" />
+        </div>
+    </div>
+</form>
+
+
+
