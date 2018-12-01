@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ArticoliGratis.Models.Regione>;
+@{
+    ViewData["Title"] = "Amministrazione";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div id="categorieArticoli">
+        <h3>Gestione Regione</h3> 
+        <ul class="list-unstyled">    
+            <li>@Html.ActionLink("Crea Regione", "Regione_Create" , "Administration" )</li>
+        </ul>
+    </div>
+ </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeRegione)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescrizioneRegione)
+            </th>    
+            <th>             
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeRegione)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescrizioneRegione)
+                </td>         
+                <td>              
+                    @Html.ActionLink("Modifica", "Regione_Edit" , "Administration",  new {id=@item.idRegione} )
+                    @Html.ActionLink("Elimina", "Regione_Delete" , "Administration",  new {id=@item.idRegione} )
+                </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+

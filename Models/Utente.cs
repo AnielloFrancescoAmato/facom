@@ -85,15 +85,7 @@ namespace ArticoliGratis.Models
         [Required(ErrorMessage = "Il campo Cognome è richiesto")]
         [DisplayName("Email Personale")]
         public string EmailPersonale { get; set; }
-        [Required(ErrorMessage = "Il campo Regione è richiesto")]
-        [DisplayName("Regione")]
-        public string Regione { get; set; }
-        [Required(ErrorMessage = "Il campo Provincia è richiesto")]
-        [DisplayName("Provincia")]
-        public string Provincia { get; set; }
-        [Required(ErrorMessage = "Il campo Comune è richiesto")]
-        [DisplayName("Comune")]
-        public string Comune { get; set; }
+
         [DisplayName("Data Di Nascita")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DataDiNascita { get; set; }
@@ -118,6 +110,8 @@ namespace ArticoliGratis.Models
         public bool LiberoProfessionista { get; set; }
         [DisplayName("Settore")]
         public virtual Settore settore { get; set; }
+        
+        public virtual Comune comune{ get; set; }
 
     }
     public class DatiAziendali
@@ -130,6 +124,37 @@ namespace ArticoliGratis.Models
         public virtual CategoriaAzienda CategoriaAzienda { get; set; }
         public string EmailAzienda { get; set; }
 
+    }
+
+    public class Regione{
+        [Key]
+        public int idRegione { get; set; }
+        [Required(ErrorMessage = "Il campo Nome Regione è richiesto")]
+        [DisplayName("Nome Regione")]
+        public string NomeRegione { get; set; }
+        public string DescrizioneRegione { get; set; }
+    }
+
+
+    public class Provincia{
+        [Key]
+        public int idProvincia { get; set; }
+        [Required(ErrorMessage = "Il campo Nome Provincia è richiesto")]
+        [DisplayName("Nome Provincia")]
+        public string NomeProvincia { get; set; }
+        public string DescrizioneProvincia { get; set; }
+        public virtual Regione Regione{ get; set; }
+    }
+
+
+    public class Comune{
+        [Key]
+        public int idComune { get; set; }
+        [Required(ErrorMessage = "Il campo Nome Comune è richiesto")]
+        [DisplayName("Nome Comune")]
+        public string NomeComune { get; set; }
+        public string DescrizioneComune { get; set; }
+        public virtual Provincia Provincia{ get; set; }
     }
 
     /* 

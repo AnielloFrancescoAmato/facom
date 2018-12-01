@@ -192,6 +192,289 @@ namespace ArticoliGratis.Controllers
 
 
 
+
+
+
+
+        public IActionResult Regione()
+        {
+            List<Regione> regioni = _context.Regioni.ToList();
+            return View(regioni);
+        }
+
+
+        [HttpGet]
+        public IActionResult Regione_Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Regione_Create(Regione regione)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Regioni.Add(regione);
+                _context.SaveChanges();
+                return RedirectToAction("Regione");
+            }
+            else
+            {
+                return View(regione);
+            }
+        }
+        [HttpGet]
+        public IActionResult Regione_Edit(int id)
+        {
+            Regione regione = _context.Regioni.Where(x => x.idRegione == id).FirstOrDefault();
+            return View(regione);
+        }
+
+        [HttpPost]
+        public IActionResult Regione_Edit(Regione regione)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Regioni.Update(regione);
+                _context.SaveChanges();
+                return RedirectToAction("Regione");
+            }
+            else
+            {
+                return View(regione);
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult Regione_Delete(int id)
+        {
+            Regione regione = _context.Regioni.Where(x => x.idRegione== id).FirstOrDefault();
+            return View(regione);
+        }
+
+        [HttpPost]
+        public IActionResult Regione_Delete(Regione regione)
+        {
+            if (regione != null)
+            {
+                return View("ConfirmDelete_Regione", regione);
+            }
+            return View("Regione");
+
+        }
+
+        [HttpPost]
+        public IActionResult Regione_ConfirmDelete(Regione regione)
+        {
+            if (regione != null)
+            {
+                _context.Regioni.Remove(regione);
+                _context.SaveChanges();
+                return RedirectToAction("Regione");
+            }
+            return View("Regione");
+
+        }
+
+
+
+        public IActionResult Provincia()
+        {
+            List<Provincia> province = _context.Province
+            .Include(x =>x.Regione)
+            .ToList();
+            return View(province);
+        }
+
+
+        [HttpGet]
+        public IActionResult Provincia_Create()
+        {
+            @ViewBag.regioni = _context.Regioni.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Provincia_Create(Provincia provincia)
+        {
+            ModelState.Remove("Regione.NomeRegione");
+            if (ModelState.IsValid)
+            {
+                provincia.Regione = _context.Regioni.Where(x => x.idRegione ==provincia.Regione.idRegione).FirstOrDefault();
+                _context.Province.Add(provincia);
+                _context.SaveChanges();
+                return RedirectToAction("Provincia");
+            }
+            else
+            {
+                @ViewBag.regioni = _context.Regioni.ToList();
+                return View(provincia);
+            }
+        }
+        [HttpGet]
+        public IActionResult Provincia_Edit(int id)
+        {
+            Provincia provincia = _context.Province.Where(x => x.idProvincia == id).FirstOrDefault();
+            @ViewBag.regioni = _context.Regioni.ToList();
+            return View( provincia );
+        }
+
+        [HttpPost]
+        public IActionResult  Provincia_Edit( Provincia  provincia)
+        {
+            ModelState.Remove("Regione.NomeRegione");
+            if (ModelState.IsValid)
+            {
+                 provincia.Regione = _context.Regioni.Where(x => x.idRegione ==provincia.Regione.idRegione).FirstOrDefault();
+                _context.Province.Update(provincia);
+                _context.SaveChanges();
+                return RedirectToAction("Provincia");
+            }
+            else
+            {
+                @ViewBag.regioni = _context.Regioni.ToList();
+                return View(provincia);
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult Provincia_Delete(int id)
+        {
+            Provincia provincia = _context.Province.Where(x => x.idProvincia== id).FirstOrDefault();
+            @ViewBag.regioni = _context.Regioni.ToList();
+            return View(provincia);
+        }
+
+        [HttpPost]
+        public IActionResult Provincia_Delete(Provincia provincia)
+        {
+            if (provincia != null)
+            {
+                return View("ConfirmDelete_Provincia", provincia);
+            }
+            return View("Provincia");
+
+        }
+
+        [HttpPost]
+        public IActionResult Provincia_ConfirmDelete(Provincia provincia)
+        {
+            if (provincia != null)
+            {
+                _context.Province.Remove(provincia);
+                _context.SaveChanges();
+                return RedirectToAction("Provincia");
+            }
+            return View("Provincia");
+
+        }
+
+
+
+
+
+
+
+        public IActionResult Comune()
+        {
+            List<Comune> comuni = _context.Comuni
+            .Include(x =>x.Provincia)
+            .ToList();
+            return View(comuni);
+        }
+
+
+        [HttpGet]
+        public IActionResult Comune_Create()
+        {
+            @ViewBag.province = _context.Province.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Comune_Create(Comune comune)
+        {
+            ModelState.Remove("Provincia.NomeProvincia");
+            if (ModelState.IsValid)
+            {
+                comune.Provincia = _context.Province.Where(x => x.idProvincia ==comune.Provincia.idProvincia).FirstOrDefault();
+                _context.Comuni.Add(comune);
+                _context.SaveChanges();
+                return RedirectToAction("Comune");
+            }
+            else
+            {
+                @ViewBag.province = _context.Province.ToList();
+                return View(comune);
+            }
+        }
+        [HttpGet]
+        public IActionResult Comune_Edit(int id)
+        {
+            Comune comune = _context.Comuni.Where(x => x.idComune == id).FirstOrDefault();
+             @ViewBag.province = _context.Province.ToList();
+            return View( comune );
+        }
+
+        [HttpPost]
+        public IActionResult  Comune_Edit( Comune  comune)
+        {
+            ModelState.Remove("Provincia.NomeProvincia");
+            if (ModelState.IsValid)
+            {
+                 comune.Provincia = _context.Province.Where(x => x.idProvincia ==comune.Provincia.idProvincia).FirstOrDefault();
+                _context.Comuni.Update(comune);
+                _context.SaveChanges();
+                return RedirectToAction("Comune");
+            }
+            else
+            {
+                @ViewBag.province = _context.Province.ToList();
+                return View(comune);
+            }
+        }
+
+
+        [HttpGet]
+        public IActionResult Comune_Delete(int id)
+        {
+            Comune comune = _context.Comuni.Where(x => x.idComune== id).FirstOrDefault();
+            @ViewBag.province = _context.Province.ToList();
+            return View(comune);
+        }
+
+        [HttpPost]
+        public IActionResult Comune_Delete(Comune comune)
+        {
+            if (comune != null)
+            {
+                return View("ConfirmDelete_Comune", comune);
+            }
+            return View("Comune");
+
+        }
+
+        [HttpPost]
+        public IActionResult Comune_ConfirmDelete(Comune comune)
+        {
+            if (comune != null)
+            {
+                _context.Comuni.Remove(comune);
+                _context.SaveChanges();
+                return RedirectToAction("Comune");
+            }
+            return View("Comune");
+
+        }
+
+
+
+
+
+
+
         public IActionResult CategoriaAzienda()
         {
             List<CategoriaAzienda> categorieAzienda = _context.CategorieAziende.ToList();

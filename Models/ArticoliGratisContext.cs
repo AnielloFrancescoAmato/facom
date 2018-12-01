@@ -22,6 +22,10 @@ namespace ArticoliGratis.Models
         public DbSet<Settore> Settori{  get; set; }
         public DbSet<Lavoro> Lavori{  get; set; }
         public DbSet<Sesso> Sessi{  get; set; }
+
+        public DbSet<Regione> Regioni{  get; set; }
+        public DbSet<Provincia> Province{  get; set; }
+        public DbSet<Comune> Comuni{  get; set; }
     }
 }
 
